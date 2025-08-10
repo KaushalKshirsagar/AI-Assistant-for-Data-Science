@@ -32,11 +32,11 @@ llm = Cohere(
 )
 
 # Streamlit UI
-st.title("AI Assistant for Data Science")
+st.title("🤖 AI Assistant for Data Science")
 st.write("Hello, I am your AI Assistant to help you throughout your data science projects")
 
 with st.sidebar:
-    st.write("*Your Data Science adventure begins with a CSV file.*")
+    st.write("📊 *Your Data Science adventure begins with a CSV file.*")
     st.caption('''**You have to upload your CSV file. Once you upload a CSV file, we can start with data exploration and to shape your business challenge into data science framework. I will introduce you coolest ML models and we will use them to tackle your problems.**''')
     st.divider()
     st.caption("<p style='text-align:center'>Made by Kaushal & Kartik</p>", unsafe_allow_html=True)
@@ -47,7 +47,7 @@ if 'clicked' not in st.session_state:
 def clicked(button):
     st.session_state.clicked[button] = True
 
-st.button("Let's get started", on_click=clicked, args=[1])
+st.button("🚀 Let's get started", on_click=clicked, args=[1])
 
 if st.session_state.clicked[1]:
     user_csv = st.file_uploader("Upload your file here", type="csv")
@@ -57,7 +57,7 @@ if st.session_state.clicked[1]:
 
         # ✅ EDA steps from Cohere
         with st.sidebar:
-            with st.expander("What are the steps of EDA"):
+            with st.expander("🧐 What are the steps of EDA"):
                 try:
                     response = llm.predict("What are the steps of EDA?")
                     st.write(response)
@@ -66,7 +66,7 @@ if st.session_state.clicked[1]:
                     st.write("Default EDA steps: Data Collection, Cleaning, Exploration, Visualization, and Preprocessing.")
 
         with st.sidebar:
-            with st.expander("Write a paragraph about importance of framing data science problem appropriately."):
+            with st.expander("📝 Write a paragraph about importance of framing data science problem appropriately."):
                 try:
                     response1 = llm.predict("Write a paragraph about importance of framing data science problem appropriately.")
                     st.write(response1)
@@ -87,10 +87,10 @@ if st.session_state.clicked[1]:
 
         @st.cache_data
         def function_agent():
-            st.write("**Data Overview**")
+            st.write("📊 **Data Overview**")
             st.write(df.head())
 
-            st.write("**Data Cleaning**")
+            st.write("🧹 **Data Cleaning**")
             try:
                 columns_df = pandas_agent.invoke({"input": "Analyze each column..."})
                 st.write(columns_df.get('output', columns_df) if isinstance(columns_df, dict) else columns_df)
@@ -109,7 +109,7 @@ if st.session_state.clicked[1]:
             except Exception as e:
                 st.error(f"Error checking duplicates: {str(e)}")
 
-            st.write("**Data Summary**")
+            st.write("📈 **Data Summary**")
             st.write(df.describe())
 
             try:
@@ -206,7 +206,7 @@ if st.session_state.clicked[1]:
             
                 
         # Run EDA
-        st.header("Exploratory Data Analysis")
+        st.header("🔍 Exploratory Data Analysis")
         st.subheader("General Information about the dataset")
         function_agent()
 
@@ -224,7 +224,7 @@ if st.session_state.clicked[1]:
 
             if user_question_dataframe:
                 st.divider()
-                st.header("Data Science Problem")
+                st.header("🛠️ Data Science Problem")
                 prompt = st.text_area("What is the business problem?")
                 if prompt:
                     wiki_research = wiki(prompt)
@@ -236,7 +236,7 @@ if st.session_state.clicked[1]:
                     # ✅ Fixed missing options
                     selected_algorithm = st.selectbox("Select machine learning algorithm", options=formatted_list)
                     if selected_algorithm is not None and selected_algorithm != "Select Algorithm":
-                        st.subheader("Solution")
+                        st.subheader("💡 Solution")
                         try:
                             solution_code = python_solution(data_problem, selected_algorithm)
                             if isinstance(solution_code, dict) and "output" in solution_code:
@@ -247,4 +247,3 @@ if st.session_state.clicked[1]:
                                 st.warning("No code was returned by the agent.")
                         except Exception as e:
                             st.error(f"Failed to generate solution: {e}")
-
