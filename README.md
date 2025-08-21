@@ -43,7 +43,16 @@ This project is an AI-powered data science assistant designed to simplify and ac
 
 ## 📸 Screenshots (Optional)
 
-*Add images of your Streamlit interface here for better presentation.*
+
+<img width="1920" height="1080" alt="Screenshot (155)" src="https://github.com/user-attachments/assets/b4a552a4-7abe-4672-baf1-64c23bec3e71" />
+
+<img width="1920" height="1080" alt="Screenshot (156)" src="https://github.com/user-attachments/assets/923bb2ba-b70c-4c65-8e22-5f79d6c592f9" />
+
+<img width="1920" height="1080" alt="Screenshot (157)" src="https://github.com/user-attachments/assets/7668a35a-1f1a-4183-8860-90e6d7616f88" />
+
+<img width="1920" height="1080" alt="Screenshot (158)" src="https://github.com/user-attachments/assets/819be9c4-defc-4765-aedd-430eb7978a6f" />
+
+<img width="1920" height="1080" alt="Screenshot (159)" src="https://github.com/user-attachments/assets/3ea0adda-8257-433d-ad41-69632691f4b0" />
 
 ---
 
@@ -103,5 +112,3 @@ streamlit run app.py
 * Support for larger datasets via chunking and streaming
 * Fine-tuning for domain-specific tasks
 * Model performance evaluation and visualization
-
-Would you like me to also prepare a **requirements.txt file content** for your repo, so anyone cloning it can install dependencies instantly?
